@@ -35,3 +35,9 @@ mk/platform.mk
 mk/PcapPlusPlus.mk-e
 #curl text
 Tests/Pcap++Test/cUrl/curl_output.txt
+
+# Buck
+/buck-out
+/.buckd
+.buckconfig.local
+

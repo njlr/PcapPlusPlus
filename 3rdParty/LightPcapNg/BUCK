@@ -1,0 +1,17 @@
+cxx_library(
+  name = 'lightpcapng', 
+  header_namespace = '', 
+  exported_headers = subdir_glob([
+    ('LightPcapNg/include', '**/*.h'), 
+  ]), 
+  srcs = glob([
+    'LightPcapNg/src/*.c', 
+  ]), 
+  platform_preprocessor_flags = [
+    ('^macos.*', [ '-DMAC_OS_X=1' ]), 
+    ('^linux.*', [ '-DLINUX=1' ]), 
+  ], 
+  visibility = [
+    'PUBLIC', 
+  ], 
+)

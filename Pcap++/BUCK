@@ -1,0 +1,24 @@
+cxx_library(
+  name = 'pcap++', 
+  header_namespace = '', 
+  exported_headers = subdir_glob([
+    ('header', '**/*.h'), 
+  ]), 
+  srcs = glob([
+    'src/**/*.cpp', 
+  ]), 
+  platform_preprocessor_flags = [
+    ('^macos.*', [ '-DMAC_OS_X=1' ]), 
+  ], 
+  exported_platform_linker_flags = [
+    ('^macos.*', [ '-lpcap', '-framework', 'CoreFoundation', '-framework', 'SystemConfiguration' ]), 
+  ], 
+  deps = [
+    '//Common++:common++', 
+    '//Packet++:packet++', 
+    '//3rdParty/LightPcapNg:lightpcapng', 
+  ], 
+  visibility = [
+    'PUBLIC', 
+  ], 
+)

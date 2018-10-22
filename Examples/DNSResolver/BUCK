@@ -1,0 +1,9 @@
+cxx_binary(
+  name = 'dnsresolver', 
+  srcs = [
+    'main.cpp', 
+  ], 
+  deps = [
+    '//Pcap++:pcap++', 
+  ], 
+)

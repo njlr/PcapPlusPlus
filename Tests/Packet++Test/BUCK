@@ -1,0 +1,22 @@
+cxx_binary(
+  name = 'main', 
+  header_namespace = '', 
+  headers = [
+    '//:in-h', 
+  ], 
+  srcs = [
+    'main.cpp', 
+  ], 
+  deps = [
+    '//3rdParty/debug-new:debug-new', 
+    '//Packet++:packet++', 
+  ], 
+)
+
+sh_binary(
+  name = 'packet++test',
+  main = ':main',
+  resources = glob([
+    'PacketExamples/*.dat', 
+  ]),
+)

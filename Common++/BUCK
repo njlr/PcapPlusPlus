@@ -1,0 +1,17 @@
+cxx_library(
+  name = 'common++', 
+  header_namespace = '', 
+  exported_headers = subdir_glob([
+    ('header', '**/*.h'), 
+  ]), 
+  srcs = glob([
+    'src/**/*.cpp', 
+  ]), 
+  platform_preprocessor_flags = [
+    ('^macos.*', [ '-I/usr/include/netinet', '-DMAC_OS_X=1' ]), 
+    ('^linux.*', [ '-I/usr/include/netinet', '-DLINUX=1' ]), 
+  ], 
+  visibility = [
+    'PUBLIC', 
+  ], 
+)

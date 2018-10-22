@@ -1,0 +1,14 @@
+cxx_binary(
+  name = 'httpanalyzer', 
+  header_namespace = '', 
+  headers = [
+    'HttpStatsCollector.h', 
+    '//:in-h', 
+  ], 
+  srcs = [
+    'main.cpp', 
+  ], 
+  deps = [
+    '//Pcap++:pcap++', 
+  ], 
+)
